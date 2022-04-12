@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.threaded_porject_workshop_7" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ThreadedPorjectWorkshop7" >
+        <activity
+            android:name=".Customers.CustomerDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Customers.CustomersActivity"
+            android:launchMode="singleInstance"
+            android:exported="false" />
+        <activity
+            android:name=".Packages.PackageDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Packages.PackagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuActivity"
+
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.ThreadedPorjectWorkshop7.Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

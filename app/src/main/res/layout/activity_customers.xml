@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_bg"
+    tools:context=".Customers.CustomersActivity">
+
+    <TextView
+        android:id="@+id/tvCustomers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:letterSpacing=".1"
+        android:text="Customers"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+
+
+    <ListView
+        android:id="@+id/lvCustomers"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_below="@id/tvCustomers"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+
+        android:divider="@color/light_orange"
+        android:dividerHeight="4px" />
+
+    />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCustAdd"
+        android:layout_below="@id/lvCustomers"
+        android:text="Add"
+        android:height="60dp"
+        android:backgroundTint="@color/dark_orange"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"></com.google.android.material.button.MaterialButton>
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
