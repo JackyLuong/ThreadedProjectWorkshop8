@@ -45,7 +45,7 @@ public class MenuActivity extends AppCompatActivity {
         llCustomers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Opening Customers", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Opening Customers..", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), CustomersActivity.class);
                 startActivity(intent);
             }
