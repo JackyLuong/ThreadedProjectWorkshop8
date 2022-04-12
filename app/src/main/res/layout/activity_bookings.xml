@@ -1,61 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_bg"
-    tools:context=".Bookings.BookingsActivity">
-
-    <TextView
-        android:id="@+id/tvBookings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:letterSpacing=".1"
-        android:text="Bookings"
-        android:textColor="@color/black"
-        android:textSize="25dp" />
-
+    android:background="#FF6E18"
+    tools:context=".Packages.PackagesActivity">
 
     <ListView
-        android:id="@+id/lvBookings"
-        android:layout_width="wrap_content"
-        android:layout_height="500dp"
-        android:layout_below="@id/tvBookings"
+        android:id="@+id/lvCustomers"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
 
-        android:divider="@color/light_orange"
-        android:dividerHeight="4px" />
+    <Button
+        android:id="@+id/btnMainMenu"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:background="#00FF6E18"
+        android:foreground="@drawable/back_arrow_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/lvCustomers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41" />
 
-    />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddBookings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lvBookings"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:height="60dp"
-        android:backgroundTint="@color/dark_orange"
-        android:text="Add"></com.google.android.material.button.MaterialButton>
-
-
-
-
-
-
-
-
-
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
