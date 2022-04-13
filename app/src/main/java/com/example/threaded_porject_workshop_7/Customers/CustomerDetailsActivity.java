@@ -3,6 +3,7 @@ package com.example.threaded_porject_workshop_7.Customers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.threaded_porject_workshop_7.MainActivity;
+import com.example.threaded_porject_workshop_7.MenuActivity;
 import com.example.threaded_porject_workshop_7.R;
 
 public class CustomerDetailsActivity extends AppCompatActivity {
@@ -55,18 +58,34 @@ public class CustomerDetailsActivity extends AppCompatActivity {
         }
 
     }
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.travel_experts_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.miHome:
+                Intent homeIntent = new Intent (getApplicationContext(), MenuActivity.class);
+                startActivity(homeIntent);
+                break;
+            case R.id.miLogout:
+                Intent logoutIntent = new Intent (getApplicationContext(), MainActivity.class);
+                startActivity(logoutIntent);
+                break;
             case android.R.id.home:
-                Intent intent = new Intent(CustomerDetailsActivity.this, CustomersActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CustomersActivity.class);
                 startActivity(intent);
                 finish();
-                return true;
-
+                break;
             default:
-                return super.onOptionsItemSelected(item);
+                //do nothing
         }
+        return super.onOptionsItemSelected(item);
     }
 }
