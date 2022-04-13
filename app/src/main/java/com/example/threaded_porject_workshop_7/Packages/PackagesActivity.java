@@ -11,16 +11,16 @@ import com.example.threaded_porject_workshop_7.R;
 
 public class PackagesActivity extends AppCompatActivity {
     ListView lvPackages;
-    Button btnMainMenu;
+    Button btnAddPackages;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packages);
 
-        lvPackages = findViewById(R.id.lvCustomers);
-        btnMainMenu = findViewById(R.id.btnMainMenu);
+        lvPackages = findViewById(R.id.lvBookings);
+        btnAddPackages = findViewById(R.id.btnAddPackages);
 
-        btnMainMenu.setOnClickListener(new View.OnClickListener()
+        btnAddPackages.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)

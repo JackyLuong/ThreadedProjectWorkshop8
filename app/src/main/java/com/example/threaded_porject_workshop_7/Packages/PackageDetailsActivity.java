@@ -11,7 +11,6 @@ import com.example.threaded_porject_workshop_7.R;
 public class PackageDetailsActivity extends AppCompatActivity {
     Button btnSave;
     Button btnDelete;
-    Button btnReturn;
     EditText etPkgName;
     EditText etStartDate;
     EditText etEndDate;
@@ -25,21 +24,11 @@ public class PackageDetailsActivity extends AppCompatActivity {
 
         btnSave = findViewById(R.id.btnSave);
         btnDelete = findViewById(R.id.btnDelete);
-        btnReturn = findViewById(R.id.btnReturn);
-        etPkgName = findViewById(R.id.etDate);
-        etStartDate = findViewById(R.id.etBookingNo);
-        etEndDate = findViewById(R.id.etTravelerCount);
-        etDescription = findViewById(R.id.etCustomerId);
-        etBasePrice = findViewById(R.id.etTripTypeId);
-        etCommission = findViewById(R.id.etPackageId);
-
-        btnReturn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                finish();
-            }
-        });
+        etPkgName = findViewById(R.id.etName);
+        etStartDate = findViewById(R.id.etStartDate);
+        etEndDate = findViewById(R.id.etEndDate);
+        etDescription = findViewById(R.id.etDescription);
+        etBasePrice = findViewById(R.id.etBasePrice);
+        etCommission = findViewById(R.id.etCommission);
     }
 }

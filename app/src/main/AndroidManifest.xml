@@ -23,6 +23,12 @@
             android:name=".Packages.PackagesActivity"
             android:exported="false" />
         <activity
+            android:name=".Bookings.BookingsDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Bookings.BookingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
 
             android:exported="false" />

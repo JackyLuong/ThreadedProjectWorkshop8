@@ -12,7 +12,6 @@ import com.example.threaded_porject_workshop_7.R;
 public class BookingsDetailsActivity extends AppCompatActivity {
     Button btnSave;
     Button btnDelete;
-    Button btnReturn;
     EditText etDate;
     EditText etBookingNo;
     EditText etTravelerCount;
@@ -26,7 +25,6 @@ public class BookingsDetailsActivity extends AppCompatActivity {
 
         btnSave = findViewById(R.id.btnSave);
         btnDelete = findViewById(R.id.btnDelete);
-        btnReturn = findViewById(R.id.btnReturn);
         etDate = findViewById(R.id.etDate);
         etBookingNo = findViewById(R.id.etBookingNo);
         etTravelerCount = findViewById(R.id.etTravelerCount);
@@ -34,13 +32,5 @@ public class BookingsDetailsActivity extends AppCompatActivity {
         etTripTypeId = findViewById(R.id.etTripTypeId);
         etPackageId = findViewById(R.id.etPackageId);
 
-        btnReturn.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                finish();
-            }
-        });
     }
 }
