@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.threaded_porject_workshop_7.Bookings.BookingsActivity;
 import com.example.threaded_porject_workshop_7.Customers.CustomersActivity;
 import com.example.threaded_porject_workshop_7.Packages.PackagesActivity;
 
@@ -54,7 +55,17 @@ public class MenuActivity extends AppCompatActivity {
         llPackages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Opening Packages..", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), PackagesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        llBookings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Opening Bookings..", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), BookingsActivity.class);
                 startActivity(intent);
             }
         });

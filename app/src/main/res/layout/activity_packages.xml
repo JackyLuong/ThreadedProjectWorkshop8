@@ -1,38 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF6E18"
+    android:background="@color/grey_bg"
     tools:context=".Packages.PackagesActivity">
 
-    <ListView
-        android:id="@+id/lvCustomers"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
+    <TextView
+        android:id="@+id/tvPackages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973" />
+        android:gravity="center"
+        android:letterSpacing=".1"
+        android:text="Packages"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
 
-    <Button
-        android:id="@+id/btnMainMenu"
-        android:layout_width="38dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:background="#00FF6E18"
-        android:foreground="@drawable/back_arrow_foreground"
-        app:layout_constraintBottom_toTopOf="@+id/lvCustomers"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ListView
+        android:id="@+id/lvPackages"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_below="@id/tvPackages"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+
+        android:divider="@color/light_orange"
+        android:dividerHeight="4px" />
+
+    />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddPackages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lvPackages"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:height="60dp"
+        android:backgroundTint="@color/dark_orange"
+        android:text="Add"></com.google.android.material.button.MaterialButton>
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

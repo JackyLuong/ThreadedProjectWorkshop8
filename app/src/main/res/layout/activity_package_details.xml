@@ -1,179 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#00FFFFFF"
+    android:background="@color/grey_bg"
     tools:context=".Packages.PackageDetailsActivity">
 
   <TextView
-      android:id="@+id/textView"
-      android:layout_width="wrap_content"
+      android:id="@+id/tvPackages"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Name:"
-      android:textSize="24dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.046"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.171" />
-
-  <TextView
-      android:id="@+id/textView2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="60dp"
-      android:text="Start Date:"
-      android:textSize="24dp"
-      app:layout_constraintStart_toStartOf="@+id/textView"
-      app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-  <TextView
-      android:id="@+id/textView3"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="60dp"
-      android:text="End Date:"
-      android:textSize="24dp"
-      app:layout_constraintStart_toStartOf="@+id/textView2"
-      app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-  <TextView
-      android:id="@+id/textView4"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="60dp"
-      android:text="Description:"
-      android:textSize="24dp"
-      app:layout_constraintStart_toStartOf="@+id/textView3"
-      app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-  <TextView
-      android:id="@+id/textView5"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="60dp"
-      android:text="Base Price:"
-      android:textSize="24dp"
-      app:layout_constraintStart_toStartOf="@+id/textView4"
-      app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-  <TextView
-      android:id="@+id/textView6"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="60dp"
-      android:text="Commission:"
-      android:textSize="24dp"
-      app:layout_constraintStart_toStartOf="@+id/textView5"
-      app:layout_constraintTop_toBottomOf="@+id/textView5" />
+      android:layout_marginTop="20dp"
+      android:layout_marginBottom="10dp"
+      android:gravity="center"
+      android:letterSpacing=".1"
+      android:text="Packages Details"
+      android:textColor="@color/black"
+      android:textSize="20dp" />
 
   <EditText
-      android:id="@+id/etTravelerCount"
-      android:layout_width="wrap_content"
+      android:id="@+id/etName"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginStart="44dp"
-      android:ems="10"
-      android:inputType="textPersonName"
-      android:text="Name"
-      android:textSize="20dp"
-      app:layout_constraintBottom_toBottomOf="@+id/textView3"
-      app:layout_constraintStart_toEndOf="@+id/textView3" />
+      android:layout_below="@id/tvPackages"
+      android:layout_marginLeft="20dp"
+      android:layout_marginTop="10dp"
+      android:layout_marginRight="20dp"
+      android:hint="Package Name"
+      android:textSize="18dp" />
 
   <EditText
-      android:id="@+id/etPackageId"
-      android:layout_width="wrap_content"
+      android:id="@+id/etStartDate"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:ems="10"
-      android:inputType="textPersonName"
-      android:text="Name"
-      android:textSize="20dp"
-      app:layout_constraintBottom_toBottomOf="@+id/textView6"
-      app:layout_constraintStart_toEndOf="@+id/textView6" />
+      android:layout_below="@id/etName"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:hint="Start Date"
+      android:textSize="18dp" />
 
   <EditText
-      android:id="@+id/etTripTypeId"
-      android:layout_width="wrap_content"
+      android:id="@+id/etEndDate"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginStart="28dp"
-      android:ems="10"
-      android:inputType="textPersonName"
-      android:text="Name"
-      android:textSize="20dp"
-      app:layout_constraintBottom_toBottomOf="@+id/textView5"
-      app:layout_constraintStart_toEndOf="@+id/textView5" />
+      android:layout_below="@id/etStartDate"
+      android:layout_marginLeft="20dp"
+      android:layout_marginTop="20dp"
+      android:layout_marginRight="20dp"
+      android:hint="End Date"
+      android:textSize="18dp" />
 
   <EditText
-      android:id="@+id/etBookingNo"
-      android:layout_width="wrap_content"
+      android:id="@+id/etDescription"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginStart="32dp"
-      android:ems="10"
-      android:inputType="textPersonName"
-      android:text="Name"
-      android:textSize="20dp"
-      app:layout_constraintBottom_toBottomOf="@+id/textView2"
-      app:layout_constraintStart_toEndOf="@+id/textView2" />
+      android:layout_below="@id/etEndDate"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:hint="Description"
+      android:textSize="18dp" />
 
   <EditText
-      android:id="@+id/etDate"
-      android:layout_width="wrap_content"
+      android:id="@+id/etBasePrice"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginStart="76dp"
-      android:ems="10"
-      android:inputType="textPersonName"
-      android:text="Name"
-      android:textSize="20dp"
-      app:layout_constraintBottom_toBottomOf="@+id/textView"
-      app:layout_constraintStart_toEndOf="@+id/textView" />
+      android:layout_below="@id/etDescription"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:hint="Base Price"
+      android:textSize="18dp" />
 
   <EditText
-      android:id="@+id/etCustomerId"
-      android:layout_width="wrap_content"
+      android:id="@+id/etCommission"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginStart="20dp"
-      android:ems="10"
-      android:inputType="textPersonName"
-      android:text="Name"
-      android:textSize="20dp"
-      app:layout_constraintBottom_toBottomOf="@+id/textView4"
-      app:layout_constraintStart_toEndOf="@+id/textView4" />
+      android:layout_below="@id/etBasePrice"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:hint="Agency Commission"
+      android:textSize="18dp" />
 
-  <Button
-      android:id="@+id/btnSave"
-      android:layout_width="wrap_content"
+  <LinearLayout
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="52dp"
-      android:layout_marginEnd="12dp"
-      android:backgroundTint="#FF6E18"
-      android:text="Save"
-      app:layout_constraintEnd_toEndOf="@+id/textView6"
-      app:layout_constraintTop_toBottomOf="@+id/textView6" />
+      android:layout_below="@+id/etCommission"
+      android:layout_marginTop="20dp"
+      android:orientation="horizontal"
+      android:weightSum="100">
 
-  <Button
-      android:id="@+id/btnDelete"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="108dp"
-      android:layout_marginTop="52dp"
-      android:backgroundTint="#FF6E18"
-      android:text="Delete"
-      app:layout_constraintStart_toEndOf="@+id/btnSave"
-      app:layout_constraintTop_toBottomOf="@+id/etPackageId" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50">
 
-  <Button
-      android:id="@+id/btnReturn"
-      android:layout_width="66dp"
-      android:layout_height="64dp"
-      android:layout_marginBottom="48dp"
-      android:background="#00FFFFFF"
-      android:backgroundTint="#00FFFFFF"
-      android:foreground="@drawable/back_arrow_foreground"
-      android:foregroundTint="#FF6E18"
-      app:layout_constraintBottom_toTopOf="@+id/textView"
-      app:layout_constraintStart_toStartOf="@+id/textView" />
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btnSave"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_margin="20dp"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="20dp"
+          android:layout_marginBottom="20dp"
+          android:height="60dp"
+          android:backgroundTint="@color/dark_orange"
+          android:text="Save"></com.google.android.material.button.MaterialButton>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="50">
+
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btnDelete"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_margin="20dp"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="20dp"
+          android:layout_marginBottom="20dp"
+          android:height="60dp"
+          android:backgroundTint="@color/dark_orange"
+          android:text="Delete"></com.google.android.material.button.MaterialButton>
+
+
+    </LinearLayout>
+
+
+  </LinearLayout>
+
+
+</RelativeLayout>

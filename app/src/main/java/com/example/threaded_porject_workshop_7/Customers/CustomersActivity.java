@@ -2,7 +2,6 @@ package com.example.threaded_porject_workshop_7.Customers;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,7 +29,7 @@ public class CustomersActivity extends AppCompatActivity {
             setContentView(R.layout.activity_customers);
 
             lvCustomers = findViewById(R.id.lvCustomers);
-            btnCustAdd = findViewById(R.id.btnCustAdd);
+            btnCustAdd = findViewById(R.id.btnAddCustomers);
             customersList = new ArrayList<>();
 
             loadCustomers();
