@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/drawable/half_circle.xml" value="0.1" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/activity_bookings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/activity_bookings_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/activity_customer_details.xml" value="0.33" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/activity_customers.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/activity_menu.xml" value="0.33" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/activity_package_details.xml" value="0.33" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/activity_packages.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/fragment_log_in.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/fragment_package_details.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/jacke/Desktop/Java-School-Projects/ThreadedPorjectWorkshop7/app/src/main/res/layout/fragment_packages.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/drawable/back_arrow_background.xml" value="0.1" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/drawable/back_arrow_darkorange.xml" value="0.1" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/drawable/home.xml" value="0.1" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/layout/activity_bookings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/layout/activity_bookings_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/layout/activity_customer_details.xml" value="0.19696969696969696" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/layout/activity_customers.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/layout/activity_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/layout/activity_package_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/layout/activity_packages.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/layout/customers_list_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/jacke/Desktop/ThreadedProjectWorkshop7/app/src/main/res/menu/travel_experts_menu.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/drawable/back_arrow_background.xml" value="0.2035" />
+        <entry key="app/src/main/res/drawable/back_arrow_darkorange.xml" value="0.2035" />
+        <entry key="app/src/main/res/drawable/back_arrow_foreground.xml" value="0.2035" />
+        <entry key="app/src/main/res/layout/activity_bookings_details.xml" value="0.3128205128205128" />
+        <entry key="app/src/main/res/layout/activity_customer_details.xml" value="0.21851851851851853" />
+        <entry key="app/src/main/res/layout/activity_customers.xml" value="0.21851851851851853" />
+        <entry key="app/src/main/res/layout/activity_customers_details2.xml" value="0.26979166666666665" />
+        <entry key="app/src/main/res/layout/activity_customers_old.xml" value="0.26979166666666665" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3488943488943489" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_menu_old.xml" value="0.21851851851851853" />
+        <entry key="app/src/main/res/layout/customers_list_layout.xml" value="0.26979166666666665" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1365" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

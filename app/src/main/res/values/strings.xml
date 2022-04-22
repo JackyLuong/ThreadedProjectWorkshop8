@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">TravelExperts</string>
+    <string name="alert_title_missingInput">Missing Login Input!</string>
+    <string name="alert_msg_missingInput">Email address and Password are required!</string>
+    <string name="alert_title_failedAuth">Authentication Failed!</string>
+    <string name="alert_msg_failedAuth">Username and/or password is incorrect!</string>
+    <string name="alert_title_unknown">Login Error Occurred!</string>
+    <string name="alert_msg_unknown">Please check your credentials and try again later!</string>
+    <string name="alert_title_customerInput">Missing Required Input!</string>
+    <string name="alert_msg_customerInput">Please fill out all required fields!</string>
+</resources>
