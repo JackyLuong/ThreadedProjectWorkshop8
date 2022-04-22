@@ -27,6 +27,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
+        android:inputType="date"
         android:hint="Booking Date"
         android:textSize="18dp" />
 
@@ -41,14 +42,28 @@
         android:textSize="18dp" />
 
     <EditText
+        android:id="@+id/etBookingTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etBookingNo"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginRight="20dp"
+        android:enabled="false"
+        android:hint="BookingTotal"
+        android:inputType="numberDecimal"
+        android:textSize="18dp" />
+
+    <EditText
         android:id="@+id/etTravelerCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etBookingNo"
+        android:layout_below="@+id/etBookingTotal"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="31dp"
         android:layout_marginRight="20dp"
         android:hint="Travel Count"
+        android:inputType="number"
         android:textSize="18dp" />
 
     <EditText
@@ -59,6 +74,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Customer Id"
+        android:inputType="number"
         android:textSize="18dp" />
 
     <EditText
@@ -77,6 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/etTripTypeId"
         android:layout_marginLeft="20dp"
+        android:inputType="number"
         android:layout_marginRight="20dp"
         android:hint="Package Id"
         android:textSize="18dp" />

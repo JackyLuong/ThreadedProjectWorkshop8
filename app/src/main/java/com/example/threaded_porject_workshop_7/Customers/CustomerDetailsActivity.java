@@ -2,7 +2,6 @@ package com.example.threaded_porject_workshop_7.Customers;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -14,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.threaded_porject_workshop_7.MainActivity;
 import com.example.threaded_porject_workshop_7.MenuActivity;
 import com.example.threaded_porject_workshop_7.R;
+import com.example.threaded_porject_workshop_7.model.Customers;
 
 public class CustomerDetailsActivity extends AppCompatActivity {
     Button btnSave,btnDelete;

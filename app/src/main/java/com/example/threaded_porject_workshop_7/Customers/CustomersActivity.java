@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.threaded_porject_workshop_7.MainActivity;
 import com.example.threaded_porject_workshop_7.MenuActivity;
 import com.example.threaded_porject_workshop_7.R;
+import com.example.threaded_porject_workshop_7.model.Customers;
 
 import java.util.ArrayList;
 
