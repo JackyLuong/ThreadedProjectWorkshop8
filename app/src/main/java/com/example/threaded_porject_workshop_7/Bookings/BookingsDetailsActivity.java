@@ -2,6 +2,8 @@ package com.example.threaded_porject_workshop_7.Bookings;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +13,13 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.threaded_porject_workshop_7.DataSource;
 import com.example.threaded_porject_workshop_7.MainActivity;
 import com.example.threaded_porject_workshop_7.MenuActivity;
@@ -22,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.sql.Date;
+import java.util.concurrent.Executors;
 
 public class BookingsDetailsActivity extends AppCompatActivity {
     Button btnSave;
@@ -33,7 +43,8 @@ public class BookingsDetailsActivity extends AppCompatActivity {
     EditText etCustomerId;
     EditText etTripTypeId;
     EditText etPackageId;
-
+    double bookingTotal;
+    RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +60,7 @@ public class BookingsDetailsActivity extends AppCompatActivity {
         etCustomerId = findViewById(R.id.etCustomerId);
         etTripTypeId = findViewById(R.id.etTripTypeId);
         etPackageId = findViewById(R.id.etPackageId);
+        requestQueue = Volley.newRequestQueue(this);
 
         Intent intent = getIntent();
 
@@ -94,6 +106,49 @@ public class BookingsDetailsActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), BookingsActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+        //If package id has a valid value, update the booking total.
+        etTravelerCount.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2)
+            {
+                //display booking total
+                changeBookingTotal();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable)
+            {
+
+            }
+        });
+
+        //If package id has a valid value, update the booking total.
+        etPackageId.addTextChangedListener(new TextWatcher()
+        {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2)
+            {
+                //display booking total
+                changeBookingTotal();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable)
+            {
+
             }
         });
     }
@@ -220,6 +275,68 @@ public class BookingsDetailsActivity extends AppCompatActivity {
             Intent bookingIntent = new Intent(getApplicationContext(), BookingsActivity.class);
             startActivity(bookingIntent);
             finish();
+        }
+    }
+
+    /**
+     * Validates package id text and travel count before it calculates booking total
+     */
+    private void changeBookingTotal()
+    {
+
+        if(Validator.isPresentWithoutMessage(etTravelerCount) &&
+                Validator.isPresentWithoutMessage(etPackageId) &&
+                Validator.isDoublePositiveWithoutMessage(etTravelerCount) &&
+                Validator.isIntPositiveWithoutMessage(etPackageId))
+        {
+            Executors.newSingleThreadExecutor().execute(new calculateBookingsTotal());
+        }
+    }
+
+    /**
+     * Calculate booking total based on number of tavelers and selected package
+     */
+    private class calculateBookingsTotal implements Runnable
+    {
+        @Override
+        public void run()
+        {
+            int packageId = Integer.parseInt(etPackageId.getText().toString());
+
+            double travelCount = Double.parseDouble(etTravelerCount.getText().toString());
+            String url = "http://192.168.50.39:8080/TravelExperts_Web_Services_war_exploded/api/packages/get-package/" + packageId;
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>()
+            {
+                @Override
+                public void onResponse(String response)
+                {
+                    try
+                    {
+                        double basePrice = 0;
+
+                        JSONObject jsonObject = new JSONObject(response);
+                        //get package base price
+                        if(jsonObject != null)
+                            basePrice = jsonObject.getDouble("pkgBasePrice");
+                        //calculate booking total
+                        bookingTotal = basePrice * travelCount;
+                        //display booking total
+                        etBookingTotal.setText(Double.toString(bookingTotal));
+                    }
+                    catch (JSONException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener()
+            {
+                @Override
+                public void onErrorResponse(VolleyError error)
+                {
+                    VolleyLog.wtf(error.getMessage(), "utf-8");
+                }
+            });
+            requestQueue.add(stringRequest);
         }
     }
 }

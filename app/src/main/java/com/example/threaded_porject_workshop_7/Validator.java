@@ -26,6 +26,19 @@ public class Validator
         return result;
     }
 
+    public static boolean isPresentWithoutMessage(EditText tf)
+    {
+        boolean result = true;
+
+        //value is null or empty
+        if(tf.getText().toString() == null || tf.getText().toString().isEmpty())
+        {
+            result = false;
+        }
+
+        return result;
+    }
+
     /**
      * Checks if a double value is positive
      * @param tf
@@ -48,6 +61,22 @@ public class Validator
     }
     return result;
 }
+
+    public static boolean isDoublePositiveWithoutMessage(EditText tf)
+    {
+        boolean result = true;
+        //value isnt a double
+        if(!tryParseDouble(tf.getText().toString()))
+        {
+            result = false;
+        }
+        //value is negative
+        else if(Double.parseDouble(tf.getText().toString()) < 0)
+        {
+            result = false;
+        }
+        return result;
+    }
 
     /**
      * Checks if a double value is in range
@@ -90,6 +119,22 @@ public class Validator
         else if(Integer.parseInt(tf.getText().toString()) < 0)
         {
             tf.setError("Please fill in a positive number.");
+            result = false;
+        }
+        return result;
+    }
+
+    public static boolean isIntPositiveWithoutMessage(EditText tf)
+    {
+        boolean result = true;
+        //value isnt a int
+        if(!tryParseInt(tf.getText().toString()))
+        {
+            result = false;
+        }
+        //value is negative
+        else if(Integer.parseInt(tf.getText().toString()) < 0)
+        {
             result = false;
         }
         return result;
