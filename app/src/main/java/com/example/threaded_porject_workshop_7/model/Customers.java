@@ -1,6 +1,5 @@
 package com.example.threaded_porject_workshop_7.model;
 
-
 import java.io.Serializable;
 
 public class Customers implements Serializable {

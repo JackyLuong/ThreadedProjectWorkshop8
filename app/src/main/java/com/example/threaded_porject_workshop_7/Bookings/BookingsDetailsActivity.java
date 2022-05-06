@@ -86,6 +86,11 @@ public class BookingsDetailsActivity extends AppCompatActivity {
             {
                 //Add/ modify data
                 saveData(intent);
+
+                //Exit this activity
+                Intent intent = new Intent(getApplicationContext(), BookingsActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

@@ -94,10 +94,12 @@ public class BookingsActivity extends AppCompatActivity {
             case R.id.miHome:
                 Intent homeIntent = new Intent (getApplicationContext(), MenuActivity.class);
                 startActivity(homeIntent);
+                finish();
                 break;
             case R.id.miLogout:
                 Intent logoutIntent = new Intent (getApplicationContext(), MainActivity.class);
                 startActivity(logoutIntent);
+                finish();
                 break;
             case android.R.id.home:
                 Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
@@ -125,7 +127,7 @@ public class BookingsActivity extends AppCompatActivity {
                 intent.putExtra("booking", (Booking) lvBookings.getAdapter().getItem(i)); // add booking information
                 intent.putExtra("mode", "edit"); // change mode to edit
                 startActivity(intent); //direct to booking details
-                Executors.newSingleThreadExecutor().execute(new GetBookings());
+                finish();
             }
         });
     }

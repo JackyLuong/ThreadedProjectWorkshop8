@@ -15,49 +15,139 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.threaded_porject_workshop_7.MainActivity;
 import com.example.threaded_porject_workshop_7.MenuActivity;
 import com.example.threaded_porject_workshop_7.R;
-import com.example.threaded_porject_workshop_7.model.Customers;
 
 import java.util.ArrayList;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.threaded_porject_workshop_7.model.Customers;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.concurrent.Executors;
+
 public class CustomersActivity extends AppCompatActivity
 {
+    //declare instance variables
     ListView lvCustomers;
     Button btnCustAdd;
     ArrayList<Customers> customersList;
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        //set actionbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         setContentView(R.layout.activity_customers);
 
+        // instantiate
         lvCustomers = findViewById(R.id.lvCustomers);
         btnCustAdd = findViewById(R.id.btnAddCustomers);
         customersList = new ArrayList<>();
+        requestQueue = Volley.newRequestQueue(this);
 
-        loadCustomers();
-        CustomersListAdapter adapter = new CustomersListAdapter(this,R.layout.activity_customers, customersList);
-        lvCustomers.setAdapter(adapter);
+        // execute get customer class
+        Executors.newSingleThreadExecutor().execute(new GetCustomers());
 
+        //show customer details
         lvCustomers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), CustomerDetailsActivity.class);
                 intent.putExtra("customer", customersList.get(i));
+                finish();
                 startActivity(intent);
             }
         });
 
+        //show new customer form.
         btnCustAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CustomerDetailsActivity.class);
+                //set action for adding customer
+                intent.putExtra("action","AddCustomer");
+                finish();
                 startActivity(intent);
+
             }
         });
     }
+
+    //blueprint to retrieve customers data
+    private class GetCustomers implements Runnable{
+
+        @Override
+        public void run() {
+
+            //declare rest api endpoint
+            String url = "http://192.168.50.39:8080/TravelExperts_Web_Services_war_exploded/api/customers";
+            //initiate request to api
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                //process response
+                @Override
+                public void onResponse(String response) {
+
+                    //instantiate customized adapter
+                    CustomersListAdapter adapter = new CustomersListAdapter(getApplicationContext(),R.layout.activity_customers, customersList);
+                    //process response json
+                    try{
+                        JSONArray jsonArray  = new JSONArray(response);
+                        //loop through the json array response
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            //instantiate customer object using the response json data
+                            Customers customer = new Customers(
+                                    jsonObject.getInt("id"),
+                                    jsonObject.getString("custFirstName"),
+                                    jsonObject.getString("custLastName"),
+                                    jsonObject.getString("custAddress"),
+                                    jsonObject.getString("custCity"),
+                                    jsonObject.getString("custProv"),
+                                    jsonObject.getString("custPostal"),
+                                    jsonObject.getString("custCountry"),
+                                    jsonObject.getString("custHomePhone"),
+                                    jsonObject.getString("custBusPhone"),
+                                    jsonObject.getString("custEmail"),
+                                    jsonObject.getInt("agent")
+                            );
+                            //add customer object to the adapter
+                            adapter.add(customer);
+                        }
+                        //catch exception
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        //set the listview adapter
+                        public void run() {
+                            lvCustomers.setAdapter(adapter);
+                        }
+                    });
+                }
+                //process error
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.wtf(error.getMessage(), "utf-8");
+                }
+            });
+            requestQueue.add(stringRequest);
+        }
+    }
+
+
+    // inflate the actionbar menu
     @Override
     public boolean onCreateOptionsMenu (Menu menu)
     {
@@ -65,6 +155,7 @@ public class CustomersActivity extends AppCompatActivity
         return super.onCreateOptionsMenu(menu);
     }
 
+    // inflate the actionbar menu
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item)
     {
@@ -87,52 +178,5 @@ public class CustomersActivity extends AppCompatActivity
                 //do nothing
         }
         return super.onOptionsItemSelected(item);
-    }
-    private void loadCustomers() {
-        customersList.add(new Customers(1,"John","Doe","123 Street",
-                "Calgary","AB","t2t123","Canada","","33333333",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(2,"Jean","Aoe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(3,"Lean","Boe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(4,"Mean","Zoe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(5,"Dean","Noe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(1,"John","Doe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(2,"Jean","Aoe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(3,"Lean","Boe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(4,"Mean","Zoe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(5,"Dean","Noe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(1,"John","Doe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(2,"Jean","Aoe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(3,"Lean","Boe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(4,"Mean","Zoe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
-        customersList.add(new Customers(5,"Dean","Noe","123 Street",
-                "Calgary","AB","t2t123","Canada","123456","123445",
-                "tesst@gamil.com",1));
     }
 }

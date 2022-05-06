@@ -52,11 +52,13 @@ public class MainActivity extends AppCompatActivity {
 
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
+
                 if(!username.isEmpty() && !password.isEmpty()){
                     Executors.newSingleThreadExecutor().execute(new AgentLogin(username , password));
-                }
-                else
-                {
+                }else{
+
+
+
                     showAlertDialog(R.string.alert_title_missingInput,R.string.alert_msg_missingInput);
                 }
 
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 //                }
             }
 
-            private void showAlertDialog(int title, int message) {
+            private  void showAlertDialog(int title, int message) {
                 //set alert dialog message
                 loginAlert.setMessage(message)
                         .setCancelable(false)
@@ -117,28 +119,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private class AgentLogin implements Runnable{
+    class AgentLogin implements Runnable{
 
-        private String username;
+        private String email;
         private String password;
 
-        public AgentLogin(String username, String password) {
-            this.username = username;
+        public AgentLogin(String email, String password) {
+            this.email = email;
             this.password = password;
         }
 
         @Override
         public void run() {
-            String url = "http://192.168.50.39:8080/TravelExperts_Web_Services_war_exploded/api/agents/get-agent/" + username;
+            String url = "http://192.168.50.39:8080/TravelExperts_Web_Services_war_exploded/api/agent/get-agent/" + email;
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
 
                     try {
                         JSONObject jsonObject = new JSONObject(response);
-                        Toast.makeText(getApplicationContext(),"jsonpass" + jsonObject.getString("agtPassword"),Toast.LENGTH_SHORT).show();
+
                         if(jsonObject.getString("agtPassword").equals(password)){//show login success toast
                             Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT).show();
+                            Log.d("mark", "Login Successful");
 
 
                             String name = jsonObject.getString("agtFirstName") +" "+ jsonObject.getString("agtLastName");
@@ -149,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
                         } else {
                             //call method to show the alert
+                            Log.d("mark", "here else");
                             showAlertDialog(R.string.alert_title_failedAuth,R.string.alert_msg_failedAuth);
                         }
                     } catch (JSONException e) {
@@ -162,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    VolleyLog.wtf(error.getMessage(), "utf-8");
+                    VolleyLog.wtf("mark " + error.getMessage(), "utf-8");
                     //handle runtime errors
                     showAlertDialog(R.string.alert_title_unknown,R.string.alert_msg_unknown);
 
